@@ -1,0 +1,152 @@
+%% Beginning of Preamble
+\documentclass{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usepackage{url}
+\usepackage{multicol}
+\usepackage{fontawesome}
+
+\usepackage{fontspec}
+\setsansfont{[Inter-Medium.otf]}[
+    BoldFont=[Inter-Bold.otf]
+]
+
+\usepackage{setspace}
+\setstretch{1.15}
+
+\PassOptionsToPackage{hyphens}{url}
+\usepackage{hyperref}
+\usepackage[hypcap=false]{caption}
+
+\newcommand{\inslabel}[1]{\smash{\raisebox{-0.7em}{\tikz{
+    \node[circle, fill=green!60!black, text=white, minimum size=7.5mm] {\textbf{\textsf{\large{#1}}}};}}}}
+    
+\newcommand{\textinslabel}[1]{\smash{\raisebox{-0.4em}{\tikz{
+    \node[circle, fill=green!60!black, text=white, inner sep=1.5pt] {\textbf{\textsf{\small{#1}}}};}}}}
+    
+\usepackage{tcolorbox}
+\newtcbox{\icobox}{on line, arc=3pt, colback=red!10, colframe=red!10, before upper={\rule[-3pt]{0pt}{10pt}}, boxrule=0.1pt, boxsep=0pt, left=3pt, right=3pt, top=1pt, bottom=.5pt}
+\newcommand{\ico}[1]{\icobox{\color{red!80!black}\texttt{#1}}}
+
+\newcommand{\sectitle}[1]{
+\vspace{1em}
+\begin{flushleft}
+    \large{\textbf{\textsf{#1}}}
+\end{flushleft}
+}
+
+%% End of Preamble
+
+\begin{document}
+
+\begin{center}
+    {\Large\textsf{Using the Overleaf Platform to Compile \LaTeX\ Documents}}
+    
+    \vspace{1em}
+    {\large\textsf{\today}}
+\end{center}
+
+\sectitle{Overview}
+\LaTeX\ is a typesetting environment that has essentially become the \textit{de-facto} standard of document preparation in academia for its abilities to render mathematical formulae such as $R_{\mu\nu}-\frac{1}{2}Rg_{\mu\nu}+\Lambda g_{\mu\nu}=(8\pi G/c^4)T_{\mu\nu}$,
+% \[
+% n(v)=\frac{N}{V}\sqrt{\frac{2}{\pi}}\left(\frac{m}{k_\text{B}T}\right)^{3/2}v^2e^{-mv^2/2k_\text{B}T},
+% \]
+in addition to the refined look of the resulting \texttt{pdf} document. Students in natural sciences can quickly get started with \LaTeX\ using online editing environments such as Overleaf. By the end of this instruction, you will compile the document you are currently reading from provided source codes through Overleaf.
+
+\vspace{1em}
+\noindent{\small\textsf{\textbf{Material Needed:}}} A computer with Internet connection\\
+\noindent{\small\textsf{\textbf{Estimated Time:}}} 10 minutes
+
+\sectitle{Step-by-Step Instructions}
+\begin{itemize}[itemsep=3em]
+    \item[\inslabel{1}] % Step 1
+    Visit {\color{blue} \url{https://www.overleaf.com}} and create an account by clicking on the \ico{Register} button on the top right. Follow on-screen prompts. Once finished, you should be directed to an almost blank screen with a welcome message. 
+    
+    \item[\inslabel{2}] % Step 2
+    \begin{multicols}{2}
+    Create a blank project by clicking on the \ico{Create First Project} button and selecting \ico{Blank Project} from the drop down menu as shown in Figure \ref{fig:exampleproj}. In the pop-up box, enter any name for the project and hit \ico{Create}. You should now see the Overleaf editor.
+    % (Figure \ref{fig:editor}).
+    
+    {
+        \centering
+        \includegraphics[width=0.8\columnwidth]{exampleproj.png}
+        \captionof{figure}{Creating a blank project.}
+        \label{fig:exampleproj}
+    }
+    \vspace{-2em}
+    \end{multicols}
+    
+    % \begin{figure}[ht]
+    %     \centering
+    %     \includegraphics[width=\columnwidth]{editor.png}
+    %     \caption{The Overleaf editor displaying the project created in step 2. Box 1 lists all the files in the current project, box 2 displays the source code of the highlighted file in box 1 (by default, \texttt{main.tex}), and box 3 shows the preview of the project.}
+    %     \label{fig:editor}
+    % \end{figure}
+    
+    \item[\inslabel{3}] 
+    \begin{multicols}{2}
+    Locate \texttt{main.tex} on the left edge of the page. Click on the \ico{\faEllipsisV} icon next to \texttt{main.tex}, and then click on \ico{Delete} as shown in figure \ref{fig:delete}. We will replace this with the source files of the document you are currently reading in the steps below.
+    
+    {
+        \centering
+        \includegraphics[width=0.6\columnwidth]{delete.png}
+        \captionof{figure}{Deleting \texttt{main.tex}.}
+        \label{fig:delete}
+    }
+    \vspace{-2em}
+    \end{multicols}
+    
+    \item[\inslabel{4}] In a separate browser tab, visit {\color{blue}\url{https://github.com/JunjiangLi/ENG313-Project3}}.
+    
+    \newpage 
+    \item[\inslabel{5}] 
+    \begin{multicols}{2}
+    Download the entire project by clicking on the green \ico{Download Code} button and then selecting the \ico{Download ZIP} option as shown in Figure \ref{fig:download}. Unzip the project into a separate folder.
+    
+    {
+        \centering
+        \includegraphics[width=0.95\columnwidth]{download.png}
+        \captionof{figure}{Downloading the zipped project.}
+        \label{fig:download}
+    }
+    \vspace{-2em}
+    \end{multicols}
+    
+    \item[\inslabel{6}]
+    \begin{multicols}{2}
+    Return to the Overleaf editor. Click on the \ico{\faUpload} icon located at the top left of the page, then upload all of the files unzipped from step \textinslabel{5} following the on screen instructions. The file explorer located at the left of the screen should now look exactly the same as Figure \ref{fig:uploaded}.
+    
+    {
+        \centering
+        \includegraphics[width=0.5\columnwidth]{files.png}
+        \captionof{figure}{File explorer after uploading the unzipped project.}
+        \label{fig:uploaded}
+    }
+    \vspace{-2em}
+    \end{multicols}
+    
+    \item[\inslabel{7}] 
+    \begin{multicols}{2}
+    Click on the \ico{Menu} button located at the top left of the page. Under the \ico{Settings} tab, change \ico{Compiler} to \ico{\texttt{XeLaTeX}} (Figure \ref{fig:compiler}).\\
+    \textit{Note}: This step is usually not needed, but this project uses custom fonts (the two \texttt{.otf} files you uploaded in step \textinslabel{6}), which is best supported by the \texttt{XeLaTeX} compiler.
+    
+    \columnbreak
+    {
+        \centering
+        \includegraphics[width=0.8\columnwidth]{compiler.png}
+        \captionof{figure}{Changing the compiler to \texttt{XeLaTeX}.}
+        \label{fig:compiler}
+    }
+    \vspace{-2em}
+    \end{multicols}
+    
+    \item[\inslabel{8}] Select the file \texttt{main.tex} in the Overleaf file explorer if it is not already highlighted. Push the green \ico{\faRefresh\ Recompile} button at the top of the screen, and this document should now appear in your browser.
+    
+    \item[\inslabel{9}] Download the compiled \texttt{pdf} by clicking on the \ico{\faDownload} button located next to the Recompile button. Congratulations!
+\end{itemize}
+
+\sectitle{Conclusions}
+Now that you have gained familiarity with the Overleaf environment and have compiled a \LaTeX\ document, you are encouraged to learn more about the \LaTeX\ language, of which the \texttt{main.tex} you have selected is an example. The \LaTeX\ language is responsible for instructing the compiler what content to produce and how to render them. You may find helpful information at {\color{blue}\url{https://www.overleaf.com/learn/latex/Tutorials}}.
+
+\end{document}
