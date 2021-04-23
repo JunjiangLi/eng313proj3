@@ -29,6 +29,8 @@
 \usepackage{tcolorbox}
 \newtcbox{\icobox}{on line, arc=3pt, colback=red!10, colframe=red!10, before upper={\rule[-3pt]{0pt}{10pt}}, boxrule=0.1pt, boxsep=0pt, left=3pt, right=3pt, top=1pt, bottom=.5pt}
 \newcommand{\ico}[1]{\icobox{\color{red!80!black}\texttt{#1}}}
+\newtcbox{\icoboxg}{on line, arc=3pt, colback=green!60!black, colframe=green!60!black, before upper={\rule[-3pt]{0pt}{10pt}}, boxrule=0.1pt, boxsep=0pt, left=3pt, right=3pt, top=1pt, bottom=.5pt}
+\newcommand{\icog}[1]{\icoboxg{\color{white}\texttt{#1}}}
 
 \newcommand{\sectitle}[1]{
 \vspace{1em}
@@ -62,7 +64,9 @@ in addition to the refined look of the resulting \texttt{pdf} document. Students
 \sectitle{Step-by-Step Instructions}
 \begin{itemize}[itemsep=3em]
     \item[\inslabel{1}] % Step 1
-    Visit {\color{blue} \url{https://www.overleaf.com}} and create an account by clicking on the \ico{Register} button on the top right. Follow on-screen prompts. Once finished, you should be directed to an almost blank screen with a welcome message. 
+    Create a new account on {\color{blue} \url{https://www.overleaf.com}} using a \textbf{non-institutional email} by clicking on the \ico{Register} button located on the \textbf{top right}. Follow on-screen prompts. Once finished, you should be directed to an almost blank screen with a welcome message. 
+    
+    \textit{Note}: If your browser window is too small, the correct \ico{Register} button might be hidden behind the \ico{\faBars} icon. It is advised that you widen the window for the rest of the tutorial.
     
     \item[\inslabel{2}] % Step 2
     \begin{multicols}{2}
@@ -98,12 +102,12 @@ in addition to the refined look of the resulting \texttt{pdf} document. Students
     \vspace{-2em}
     \end{multicols}
     
-    \item[\inslabel{4}] In a separate browser tab, visit {\color{blue}\url{https://github.com/JunjiangLi/eng313proj3}}.
+    \item[\inslabel{4}] In a separate browser tab, visit {\color{blue}\url{https://rb.gy/bejkvm}}.
     
     \newpage 
     \item[\inslabel{5}] 
     \begin{multicols}{2}
-    Download the entire project by clicking on the green \ico{Download Code} button and then selecting the \ico{Download ZIP} option as shown in Figure \ref{fig:download}. Unzip the downloaded project into a separate folder.
+    Download the entire project by clicking on the green \ico{Download Code} button and then selecting the \ico{Download ZIP} option as shown in Figure \ref{fig:download}.
     
     {
         \centering
@@ -114,39 +118,54 @@ in addition to the refined look of the resulting \texttt{pdf} document. Students
     \vspace{-2em}
     \end{multicols}
     
-    \item[\inslabel{6}]
-    \begin{multicols}{2}
-    Return to the Overleaf editor. Click on the \ico{\faUpload} upload icon located at the top left of the page, then upload all of the files unzipped from step \textinslabel{5} following the on screen instructions. The file explorer located at the left of the screen should now look exactly the same as Figure \ref{fig:uploaded}.
+    \item[\inslabel{6}] 
+    % \begin{multicols}{2}
+    Uncompress the \verb|zip| file downloaded in step \textinslabel{5} into a separate folder. Your File Explorer (Windows) or Finder (macOS) should now look similar to figure \ref{fig:unzipped}.
     
     {
         \centering
-        \includegraphics[width=0.5\columnwidth]{files.png}
-        \captionof{figure}{File explorer after uploading the unzipped project.}
-        \label{fig:uploaded}
+        \includegraphics[width=0.9\columnwidth]{unzipped.png}
+        \captionof{figure}{File explorer after unzipped the zipped project.}
+        \label{fig:unzipped}
     }
     \vspace{-2em}
-    \end{multicols}
+    % \end{multicols}
     
-    \item[\inslabel{7}] 
-    \begin{multicols}{2}
+    \item[\inslabel{7}]
+    % \begin{multicols}{2}
+    Return to the Overleaf editor. Click on the \ico{\faUpload} upload icon located at the top left of the page, then upload all \textbf{eight} files unzipped from step \textinslabel{6} following the on screen instructions.
+    % The file explorer located at the left of the screen should now look exactly the same as Figure \ref{fig:uploaded}.
+    
+    % {
+    %     \centering
+    %     \includegraphics[width=0.3\columnwidth]{files.png}
+    %     \captionof{figure}{File explorer after uploading the unzipped project.}
+    %     \label{fig:uploaded}
+    % }
+    % \vspace{-2em}
+    % \end{multicols}
+    
+    \newpage 
+    \item[\inslabel{8}] 
+    % \begin{multicols}{2}
     Click on the \ico{Menu} button located at the top left of the page. Under the \ico{Settings} tab, change \ico{Compiler} to \ico{\texttt{XeLaTeX}} (Figure \ref{fig:compiler}).\\
     \textit{Note}: This step is usually not needed, but this project uses custom fonts (the two \texttt{.otf} files you uploaded in step \textinslabel{6}), which is best supported by the \texttt{XeLaTeX} compiler.
     
-    \columnbreak
+    % \columnbreak
     {
         \centering
-        \includegraphics[width=0.8\columnwidth]{compiler.png}
+        \includegraphics[width=0.9\columnwidth]{compiler.png}
         \captionof{figure}{Changing the compiler to \texttt{XeLaTeX}.}
         \label{fig:compiler}
     }
     \vspace{-2em}
-    \end{multicols}
+    % \end{multicols}
     
-    \newpage
+    % \newpage
     
-    \item[\inslabel{8}] Return to the project by clicking on the grayed out editor. Select the file \texttt{main.tex} in the Overleaf file explorer if it is not already highlighted. Push the green \ico{\faRefresh\ Recompile} button at the top of the screen, and this document should now appear in your browser.
+    \item[\inslabel{9}] Return to the project by clicking on the grayed out editor. Select the file \texttt{main.tex} in the Overleaf file explorer if it is not already highlighted. Push the green \icog{\faRefresh\ Recompile} button at the top of the screen, and wait for the \icog{\faRefresh\ Compiling...} animation to end. This document should now appear in your browser.
     
-    \item[\inslabel{9}] Download the compiled \texttt{pdf} by clicking on the \ico{\faDownload} button located next to the Recompile button. Congratulations!
+    \item[\inslabel{\small{10}}] Download the compiled \texttt{pdf} by clicking on the \ico{\faDownload} button located next to the Recompile button. Congratulations!
 \end{itemize}
 
 \sectitle{Conclusions}
